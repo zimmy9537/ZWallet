@@ -34,5 +34,9 @@ class KeychainService {
             return nil
         }
     }
+    
+    func deleteCard(card: Card) {
+        keychain[data: card.id.uuidString] = nil
+    }
 }
 
