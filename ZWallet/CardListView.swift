@@ -34,6 +34,15 @@ struct CardListView: View {
                                 .padding(.horizontal)
                                 .padding(.top, 10)
                                 .frame(height: 250)
+                                .contextMenu {
+                                    Button(action: {
+                                        cardToDelete = card
+                                        showingDeleteConfirmation = true
+                                    }) {
+                                        Text("Delete")
+                                        Image(systemName: "trash")
+                                    }
+                                }
                         }
                     }
                 }
@@ -48,8 +57,27 @@ struct CardListView: View {
                 .onAppear {
                     cards = keychainService.loadCards()
                 }
+                .alert(isPresented: $showingDeleteConfirmation) {
+                    Alert(
+                        title: Text("Delete Card"),
+                        message: Text("Are you sure you want to delete this card?"),
+                        primaryButton: .destructive(Text("Delete")) {
+                            if let cardToDelete = cardToDelete {
+                                deleteCard(cardToDelete)
+                            }
+                        },
+                        secondaryButton: .cancel()
+                    )
+                }
             }
         }
+    }
+    
+    private func deleteCard(_ card: Card) {
+            if let index = cards.firstIndex(where: { $0.id == card.id }) {
+                cards.remove(at: index)
+                keychainService.deleteCard(card: card)
+            }
     }
 }
 
