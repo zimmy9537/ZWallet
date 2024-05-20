@@ -1,0 +1,10 @@
+.build
+.derivedData
+*.xcworkspacedata
+*.xcuserstate
+*.xcdatamodeld
+*.app
+# Add folder names for third-party dependency managers (e.g., Pods, Carthage)
+*.playground
+*.log
+*.env
