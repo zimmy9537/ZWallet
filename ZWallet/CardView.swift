@@ -51,9 +51,14 @@ struct CardView: View {
 
             Spacer()
 
-            HStack {
+            HStack(alignment: .bottom) {
                 Text(card.holder)
                     .font(.system(size: 20, weight: .medium))
+                    .foregroundColor(.white)
+                Spacer()
+                Spacer()
+                Text(showMaskedNumber ? maskCvv(card.cvv) : card.cvv)
+                    .font(.system(size: 18, weight: .light))
                     .foregroundColor(.white)
                 Spacer()
                 Text(card.expiration)
@@ -67,6 +72,11 @@ struct CardView: View {
         .shadow(radius: 5)
         .frame(maxWidth: .infinity)
         .modifier(AspectHeight(ratio: 0.633)) // Apply the AspectHeight modifier
+    }
+    
+    private func maskCvv(_ cvv:String) -> String {
+        guard cvv.count == 3 else { return cvv }
+        return "***"
     }
 
     // Function to mask the card number except for the last four digits
@@ -111,6 +121,7 @@ struct CardView_Previews: PreviewProvider {
             expiration: "12/24",
             bankName: "IDFC",
             pin: "1234",
+            cvv: "123",
             isDebitCard: true
         )
         return CardView(card: sampleCard)

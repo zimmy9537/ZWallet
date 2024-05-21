@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AF0D6F532BFBC5C6003216D8 /* SecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D6F522BFBC5C6003216D8 /* SecureTextField.swift */; };
 		AF0D6F552BFBCC00003216D8 /* DetailCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D6F542BFBCC00003216D8 /* DetailCardView.swift */; };
+		AF0D6F572BFC434E003216D8 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D6F562BFC434E003216D8 /* AuthenticationView.swift */; };
 		AF2219082BFB586F00F5280C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2219072BFB586F00F5280C /* CardView.swift */; };
 		AF2B43D52BFB497E00CAE746 /* ZWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2B43D42BFB497E00CAE746 /* ZWalletApp.swift */; };
 		AF2B43D72BFB497E00CAE746 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2B43D62BFB497E00CAE746 /* ContentView.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		AF0D6F522BFBC5C6003216D8 /* SecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextField.swift; sourceTree = "<group>"; };
 		AF0D6F542BFBCC00003216D8 /* DetailCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCardView.swift; sourceTree = "<group>"; };
+		AF0D6F562BFC434E003216D8 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		AF2219072BFB586F00F5280C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		AF2B43D12BFB497E00CAE746 /* ZWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF2B43D42BFB497E00CAE746 /* ZWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZWalletApp.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				AF2B43D42BFB497E00CAE746 /* ZWalletApp.swift */,
 				AF2B43D62BFB497E00CAE746 /* ContentView.swift */,
 				AF0D6F542BFBCC00003216D8 /* DetailCardView.swift */,
+				AF0D6F562BFC434E003216D8 /* AuthenticationView.swift */,
 				AF0D6F522BFBC5C6003216D8 /* SecureTextField.swift */,
 				AF2B43D82BFB498000CAE746 /* Assets.xcassets */,
 				AF2B43DA2BFB498000CAE746 /* Preview Content */,
@@ -168,6 +171,7 @@
 				AF2B43E52BFB4A9D00CAE746 /* CardListView.swift in Sources */,
 				AF2B43E72BFB4BE400CAE746 /* KeychainService.swift in Sources */,
 				AF0D6F532BFBC5C6003216D8 /* SecureTextField.swift in Sources */,
+				AF0D6F572BFC434E003216D8 /* AuthenticationView.swift in Sources */,
 				AF2219082BFB586F00F5280C /* CardView.swift in Sources */,
 				AF2B43E32BFB4A7000CAE746 /* AddCardView.swift in Sources */,
 				AF0D6F552BFBCC00003216D8 /* DetailCardView.swift in Sources */,
@@ -304,8 +308,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZWallet/Preview Content\"";
+				DEVELOPMENT_TEAM = 439AQJ39Z6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "This app uses Face ID to authenticate the user securely.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -332,8 +338,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZWallet/Preview Content\"";
+				DEVELOPMENT_TEAM = 439AQJ39Z6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "This app uses Face ID to authenticate the user securely.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

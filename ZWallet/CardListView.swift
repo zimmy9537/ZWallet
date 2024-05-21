@@ -14,60 +14,72 @@ struct Card: Codable, Identifiable {
     var expiration: String
     var bankName: String
     var pin: String
+    var cvv: String
     var isDebitCard: Bool
 }
 
 struct CardListView: View {
     @State private var cards: [Card] = []
     let keychainService: KeychainService
+    
+    @State private var showAddCardView = false
 
     @State private var showingDeleteConfirmation = false
     @State private var cardToDelete: Card? // Track card for deletion confirmation
 
     var body: some View {
         NavigationView {
-            ScrollView {
-                LazyVStack(alignment: .center) {
-                    ForEach(cards) { card in
-                        NavigationLink(destination: DetailCardView(card: card)) {
-                            CardView(card: card, showMaskedNumber: true)
-                                .padding(.horizontal)
-                                .padding(.top, 10)
-                                .frame(height: 250)
-                                .contextMenu {
-                                    Button(action: {
-                                        cardToDelete = card
-                                        showingDeleteConfirmation = true
-                                    }) {
-                                        Text("Delete")
-                                        Image(systemName: "trash")
+            ZStack (alignment: .bottom) {
+                ScrollView {
+                    LazyVStack(alignment: .center) {
+                        ForEach(cards) { card in
+                            NavigationLink(destination: DetailCardView(card: card)) {
+                                CardView(card: card, showMaskedNumber: true)
+                                    .padding(.horizontal)
+                                    .padding(.top, 10)
+                                    .frame(height: 250)
+                                    .contextMenu {
+                                        Button(action: {
+                                            cardToDelete = card
+                                            showingDeleteConfirmation = true
+                                        }) {
+                                            Text("Delete")
+                                            Image(systemName: "trash")
+                                        }
                                     }
-                                }
-                        }
-                    }
-                }
-                .navigationTitle("My Cards")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: AddCardView(keychainService: keychainService)) {
-                            Image(systemName: "plus")
-                        }
-                    }
-                }
-                .onAppear {
-                    cards = keychainService.loadCards()
-                }
-                .alert(isPresented: $showingDeleteConfirmation) {
-                    Alert(
-                        title: Text("Delete Card"),
-                        message: Text("Are you sure you want to delete this card?"),
-                        primaryButton: .destructive(Text("Delete")) {
-                            if let cardToDelete = cardToDelete {
-                                deleteCard(cardToDelete)
                             }
-                        },
-                        secondaryButton: .cancel()
-                    )
+                        }
+                    }
+                    .navigationTitle("My Cards")
+                    .onAppear {
+                        cards = keychainService.loadCards()
+                    }
+                    .alert(isPresented: $showingDeleteConfirmation) {
+                        Alert(
+                            title: Text("Delete Card"),
+                            message: Text("Are you sure you want to delete this card?"),
+                            primaryButton: .destructive(Text("Delete")) {
+                                if let cardToDelete = cardToDelete {
+                                    deleteCard(cardToDelete)
+                                }
+                            },
+                            secondaryButton: .cancel()
+                        )
+                    }
+                }
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: AddCardView(keychainService: keychainService)) {
+                        Image(systemName: "plus")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.blue)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .shadow(radius: 10)
+                    }
+                    .background(Color.clear)
+                    .padding(.bottom, 16)
+                    .padding(.trailing, 16)
                 }
             }
         }

@@ -31,8 +31,6 @@ struct AddCardView: View {
                     Text(isDebitCard ? "Debit" : "Credit")
                 }
                 Spacer()
-                Text(bankName)
-                    .font(.system(size: 24)) // Bank name on top right corner
             }
 
             Section(header: Text("Card Information")) {
@@ -125,7 +123,7 @@ struct AddCardView: View {
         }
 
         // If all validations pass
-        let card = Card(number: cardNumber, holder: cardHolder, expiration: expirationDate, bankName: bankName, pin: pin, isDebitCard: isDebitCard)
+        let card = Card(number: cardNumber, holder: cardHolder, expiration: expirationDate, bankName: bankName, pin: pin, cvv: cvv, isDebitCard: isDebitCard)
         keychainService.saveCard(card: card) // Save PIN to keychain
         presentationMode.wrappedValue.dismiss()
     }

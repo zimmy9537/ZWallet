@@ -11,11 +11,14 @@ import SwiftUI
 
 struct DetailCardView: View {
     let card: Card
+    @State private var isUnlocked = false
 
     var body: some View {
-        CardView(card: card, showMaskedNumber: false)
-            .padding()
-            .navigationTitle("Card Details")
+        AuthenticationView(isUnlocked: $isUnlocked) {
+            return CardView(card: card, showMaskedNumber: false)
+                .padding()
+                .navigationTitle("Card Details")
+        }
     }
 }
 
@@ -27,6 +30,7 @@ struct DetailCardView_Previews: PreviewProvider {
             expiration: "12/24",
             bankName: "IDFC",
             pin: "1234",
+            cvv: "123",
             isDebitCard: true
         )
         return DetailCardView(card: sampleCard)

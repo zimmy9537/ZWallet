@@ -13,7 +13,7 @@ class KeychainService {
 
     init() {
         // Use your app's bundle identifier here
-        let bundleIdentifier = Bundle.main.bundleIdentifier ?? "com.example.WalletApp"
+        let bundleIdentifier = Bundle.main.bundleIdentifier ?? "com.studzim.best.ZWallet"
         keychain = Keychain(service: bundleIdentifier)
     }
 
