@@ -7,23 +7,12 @@
 
 import SwiftUI	
 
-struct Card: Codable, Identifiable {
-    var id = UUID()
-    var number: String
-    var holder: String
-    var expiration: String
-    var bankName: String
-    var pin: String
-    var cvv: String
-    var isDebitCard: Bool
-}
-
 struct CardListView: View {
     @State private var cards: [Card] = []
     let keychainService: KeychainService
     
     @State private var showAddCardView = false
-
+    @State private var showBankDetailsView = false
     @State private var showingDeleteConfirmation = false
     @State private var cardToDelete: Card? // Track card for deletion confirmation
 
@@ -51,6 +40,18 @@ struct CardListView: View {
                         }
                     }
                     .navigationTitle("My Cards")
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Text("Bank Details")
+                                .onTapGesture {
+                                    showBankDetailsView = true
+                                }
+                                .foregroundColor(.blue)
+                        }
+                    }
+                    .fullScreenCover(isPresented: $showBankDetailsView) {
+                        BankDetailsListView(keychainService: keychainService)
+                    }
                     .onAppear {
                         cards = keychainService.loadCards()
                     }

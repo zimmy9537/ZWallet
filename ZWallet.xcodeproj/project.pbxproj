@@ -10,6 +10,12 @@
 		AF0D6F532BFBC5C6003216D8 /* SecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D6F522BFBC5C6003216D8 /* SecureTextField.swift */; };
 		AF0D6F552BFBCC00003216D8 /* DetailCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D6F542BFBCC00003216D8 /* DetailCardView.swift */; };
 		AF0D6F572BFC434E003216D8 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D6F562BFC434E003216D8 /* AuthenticationView.swift */; };
+		AF0D6F5A2BFCD192003216D8 /* BankDetailsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D6F592BFCD192003216D8 /* BankDetailsListView.swift */; };
+		AF0D6F5C2BFCD68D003216D8 /* AddBankDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D6F5B2BFCD68D003216D8 /* AddBankDetailView.swift */; };
+		AF0D6F5E2BFCD7FE003216D8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D6F5D2BFCD7FE003216D8 /* Card.swift */; };
+		AF0D6F602BFCDA33003216D8 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D6F5F2BFCDA33003216D8 /* Bank.swift */; };
+		AF0D6F622C00FBEA003216D8 /* BankCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D6F612C00FBEA003216D8 /* BankCardView.swift */; };
+		AF0D6F642C018D1C003216D8 /* BankDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D6F632C018D1C003216D8 /* BankDetailsView.swift */; };
 		AF2219082BFB586F00F5280C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2219072BFB586F00F5280C /* CardView.swift */; };
 		AF2B43D52BFB497E00CAE746 /* ZWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2B43D42BFB497E00CAE746 /* ZWalletApp.swift */; };
 		AF2B43D72BFB497E00CAE746 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2B43D62BFB497E00CAE746 /* ContentView.swift */; };
@@ -25,6 +31,12 @@
 		AF0D6F522BFBC5C6003216D8 /* SecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextField.swift; sourceTree = "<group>"; };
 		AF0D6F542BFBCC00003216D8 /* DetailCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCardView.swift; sourceTree = "<group>"; };
 		AF0D6F562BFC434E003216D8 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		AF0D6F592BFCD192003216D8 /* BankDetailsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDetailsListView.swift; sourceTree = "<group>"; };
+		AF0D6F5B2BFCD68D003216D8 /* AddBankDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBankDetailView.swift; sourceTree = "<group>"; };
+		AF0D6F5D2BFCD7FE003216D8 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		AF0D6F5F2BFCDA33003216D8 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		AF0D6F612C00FBEA003216D8 /* BankCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCardView.swift; sourceTree = "<group>"; };
+		AF0D6F632C018D1C003216D8 /* BankDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDetailsView.swift; sourceTree = "<group>"; };
 		AF2219072BFB586F00F5280C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		AF2B43D12BFB497E00CAE746 /* ZWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF2B43D42BFB497E00CAE746 /* ZWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZWalletApp.swift; sourceTree = "<group>"; };
@@ -70,14 +82,20 @@
 				AF2B43E42BFB4A9D00CAE746 /* CardListView.swift */,
 				AF2B43D42BFB497E00CAE746 /* ZWalletApp.swift */,
 				AF2B43D62BFB497E00CAE746 /* ContentView.swift */,
+				AF0D6F5B2BFCD68D003216D8 /* AddBankDetailView.swift */,
+				AF0D6F5D2BFCD7FE003216D8 /* Card.swift */,
+				AF0D6F5F2BFCDA33003216D8 /* Bank.swift */,
 				AF0D6F542BFBCC00003216D8 /* DetailCardView.swift */,
+				AF0D6F592BFCD192003216D8 /* BankDetailsListView.swift */,
 				AF0D6F562BFC434E003216D8 /* AuthenticationView.swift */,
 				AF0D6F522BFBC5C6003216D8 /* SecureTextField.swift */,
+				AF0D6F632C018D1C003216D8 /* BankDetailsView.swift */,
 				AF2B43D82BFB498000CAE746 /* Assets.xcassets */,
 				AF2B43DA2BFB498000CAE746 /* Preview Content */,
 				AF2B43E22BFB4A7000CAE746 /* AddCardView.swift */,
 				AF2219072BFB586F00F5280C /* CardView.swift */,
 				AF2B43E62BFB4BE400CAE746 /* KeychainService.swift */,
+				AF0D6F612C00FBEA003216D8 /* BankCardView.swift */,
 			);
 			path = ZWallet;
 			sourceTree = "<group>";
@@ -166,14 +184,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF0D6F622C00FBEA003216D8 /* BankCardView.swift in Sources */,
 				AF2B43D72BFB497E00CAE746 /* ContentView.swift in Sources */,
 				AF2B43D52BFB497E00CAE746 /* ZWalletApp.swift in Sources */,
 				AF2B43E52BFB4A9D00CAE746 /* CardListView.swift in Sources */,
+				AF0D6F5C2BFCD68D003216D8 /* AddBankDetailView.swift in Sources */,
 				AF2B43E72BFB4BE400CAE746 /* KeychainService.swift in Sources */,
 				AF0D6F532BFBC5C6003216D8 /* SecureTextField.swift in Sources */,
+				AF0D6F5A2BFCD192003216D8 /* BankDetailsListView.swift in Sources */,
+				AF0D6F5E2BFCD7FE003216D8 /* Card.swift in Sources */,
 				AF0D6F572BFC434E003216D8 /* AuthenticationView.swift in Sources */,
+				AF0D6F642C018D1C003216D8 /* BankDetailsView.swift in Sources */,
 				AF2219082BFB586F00F5280C /* CardView.swift in Sources */,
 				AF2B43E32BFB4A7000CAE746 /* AddCardView.swift in Sources */,
+				AF0D6F602BFCDA33003216D8 /* Bank.swift in Sources */,
 				AF0D6F552BFBCC00003216D8 /* DetailCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
