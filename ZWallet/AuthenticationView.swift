@@ -26,6 +26,11 @@ struct AuthenticationView<Content>: View where Content: View {
                     Text("Authenticate with Face ID/Touch ID")
                         .font(.subheadline)
                         .padding()
+                    Text("Authenticate")
+                        .onTapGesture {
+                            authenticate()
+                        }
+                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                     Spacer()
                 }
                 .alert(isPresented: $isAuthenticationError) {

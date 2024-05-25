@@ -31,7 +31,7 @@ struct CardView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
+            HStack(alignment: .top) {
                 Text(card.isDebitCard ? "DEBIT" : "CREDIT")
                     .font(.system(size: 24, weight: .bold))
                     .foregroundColor(.white)

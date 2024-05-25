@@ -23,7 +23,7 @@ struct BankDetailsListView: View {
                         ForEach(banks) { bank in
                             NavigationLink(destination: BankDetailsView(bank: bank)) {
                                 VStack(alignment: .leading) {
-                                    Text(bank.branch_name)
+                                    Text(bank.bank_name)
                                         .font(.system(size: 24, weight: .bold))
                                         .foregroundColor(.white)
                                         .padding(.bottom, 8)
