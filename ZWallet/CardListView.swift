@@ -8,8 +8,9 @@
 import SwiftUI	
 
 struct CardListView: View {
+    
+    @ObservedObject var viewModel: CardViewModel
     @State private var cards: [Card] = []
-    let keychainService: KeychainService
     
     @State private var showAddCardView = false
     @State private var showBankDetailsView = false
@@ -50,10 +51,10 @@ struct CardListView: View {
                         }
                     }
                     .fullScreenCover(isPresented: $showBankDetailsView) {
-                        BankDetailsListView(keychainService: keychainService)
+                        BankDetailsListView(viewModel: .init())
                     }
                     .onAppear {
-                        cards = keychainService.loadCards()
+                        cards = viewModel.loadCards()
                     }
                     .alert(isPresented: $showingDeleteConfirmation) {
                         Alert(
@@ -61,7 +62,7 @@ struct CardListView: View {
                             message: Text("Are you sure you want to delete this card?"),
                             primaryButton: .destructive(Text("Delete")) {
                                 if let cardToDelete = cardToDelete {
-                                    deleteCard(cardToDelete)
+                                    viewModel.deleteCard(cardToDelete)
                                 }
                             },
                             secondaryButton: .cancel()
@@ -70,7 +71,7 @@ struct CardListView: View {
                 }
                 HStack {
                     Spacer()
-                    NavigationLink(destination: AddCardView(keychainService: keychainService)) {
+                    NavigationLink(destination: AddCardView(viewModel: .init())) {
                         Image(systemName: "plus")
                             .foregroundColor(.white)
                             .padding()
@@ -86,18 +87,11 @@ struct CardListView: View {
         }
     }
     
-    private func deleteCard(_ card: Card) {
-            if let index = cards.firstIndex(where: { $0.id == card.id }) {
-                cards.remove(at: index)
-                keychainService.deleteCard(card: card)
-            }
-    }
 }
 
 struct CardListView_Previews: PreviewProvider {
     static var previews: some View {
         // Create a mock KeychainService instance for preview
-        let keychainService = KeychainService()
-        return CardListView(keychainService: keychainService)
+        return CardListView(viewModel: .init())
     }
 }

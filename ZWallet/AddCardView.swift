@@ -19,7 +19,7 @@ struct AddCardView: View {
     @State private var isDebitCard: Bool = true // Track card type
 
     @Environment(\.presentationMode) var presentationMode
-    let keychainService: KeychainService
+    @ObservedObject var viewModel: CardViewModel
 
     // State for error message
     @State private var errorMessage: String?
@@ -124,7 +124,7 @@ struct AddCardView: View {
 
         // If all validations pass
         let card = Card(number: cardNumber, holder: cardHolder, expiration: expirationDate, bankName: bankName, pin: pin, cvv: cvv, isDebitCard: isDebitCard)
-        keychainService.saveCard(card: card) // Save PIN to keychain
+        viewModel.addCards(card) // Save PIN to keychain
         presentationMode.wrappedValue.dismiss()
     }
 }
@@ -132,8 +132,6 @@ struct AddCardView: View {
 
 struct AddCardView_Previews: PreviewProvider {
     static var previews: some View {
-        // Create a mock KeychainService instance for preview
-        let keychainService = KeychainService()
-        return AddCardView(keychainService: keychainService)
+        return AddCardView(viewModel: .init())
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct AddBankDetailView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    let keychainService: KeychainService
+    @ObservedObject var viewModel : BankViewModel
     
     @State private var bank_name: String = ""
     @State private var ac_no: String = ""
@@ -69,15 +69,13 @@ struct AddBankDetailView: View {
 
         // If all validations pass
         let bank = Bank(bank_name:bank_name, ac_no: ac_no, cif_no: cif_no, micr_no: micr_no, ifsc_code: ifsc_code, branch_name: branch_name, branch_code: branch_code, user_name: user_name, password: password)
-            keychainService.saveBankDetails(bank: bank) // Save bank details to keychain
+            viewModel.addBankDetails(bank) // Save bank details to viewModel
             presentationMode.wrappedValue.dismiss()
         }
 }
 
 struct AddBankDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        // Create a mock KeychainService instance for preview
-        let keychainService = KeychainService()
-        AddBankDetailView(keychainService: keychainService)
+        AddBankDetailView(viewModel: .init())
     }
 }

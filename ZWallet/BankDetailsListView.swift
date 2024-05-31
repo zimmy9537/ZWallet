@@ -9,8 +9,9 @@ import SwiftUI
 
 struct BankDetailsListView: View {
     
+    @ObservedObject var viewModel : BankViewModel
+    
     @State private var banks: [Bank] = []
-    let keychainService: KeychainService
     @State private var showingDeleteConfirmation = false
     @State private var cardToDelete: Bank? // Track card for deletion confirmation
     
@@ -49,7 +50,7 @@ struct BankDetailsListView: View {
                     }
                     .navigationTitle("My Banks")
                     .onAppear {
-                        banks = keychainService.loadBankDetails()
+                        banks = viewModel.loadBankDetails()
                     }
                     .alert(isPresented: $showingDeleteConfirmation) {
                         Alert(
@@ -100,7 +101,7 @@ struct BankDetailsListView: View {
         print("here")
         if let index = banks.firstIndex(where: { $0.id == bank.id }) {
             banks.remove(at: index)
-            keychainService.deleteBankDetails(bank: bank)
+            viewModel.deleteBankDetails(bank)
             print("Deleted")
         }
     }
@@ -109,7 +110,6 @@ struct BankDetailsListView: View {
 struct BankDetailsListView_Previews: PreviewProvider {
     static var previews: some View {
         // Create a mock KeychainService instance for preview
-        let keychainService = KeychainService()
-        return BankDetailsListView(keychainService: keychainService)
+        return BankDetailsListView(viewModel: .init())
     }
 }
